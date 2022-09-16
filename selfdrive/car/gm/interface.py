@@ -154,7 +154,7 @@ class CarInterface(CarInterfaceBase):
     else:
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
-      max_lat_accel = 3.0
+      max_lat_accel = 3.0 # 조향 힘
       ret.lateralTuning.torque.kp = 1.9 / max_lat_accel
       ret.lateralTuning.torque.kf = 1.0 / max_lat_accel
       ret.lateralTuning.torque.ki = 0.20 / max_lat_accel
@@ -176,7 +176,7 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalTuning.kpBP = [0., 5. * CV.KPH_TO_MS, 130. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.10, 1.0, 0.6]
     ret.longitudinalTuning.kiBP = [0., 130. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.157, 0.080]
+    ret.longitudinalTuning.kiV = [0.157, 0.080]  # 앞차 거리
 
     ret.longitudinalTuning.deadzoneBP = [0., 30. * CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
@@ -184,7 +184,7 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalActuatorDelayUpperBound = 0.25
 
     # ret.startAccel = -0.8 #### REMOVED
-    ret.stopAccel = -2.05
+    ret.stopAccel = -2.1
     # ret.startingAccelRate = 5.0 #### REMOVED
     ret.stoppingDecelRate = 3.5
     ret.vEgoStopping = 0.5
