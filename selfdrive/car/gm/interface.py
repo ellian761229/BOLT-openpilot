@@ -102,7 +102,7 @@ class CarInterface(CarInterfaceBase):
     ret.minEnableSpeed = -1
     ret.mass = 1625. + STD_CARGO_KG
     ret.wheelbase = 2.60096
-    ret.steerRatio = 16.85
+    ret.steerRatio = 17.7
     ret.steerRatioRear = 0.
     ret.centerToFront = ret.wheelbase * 0.49  # wild guess
     ret.disableLateralLiveTuning = True
@@ -137,7 +137,7 @@ class CarInterface(CarInterfaceBase):
       # ret.minSteerSpeed = 5 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.wheelbase = 2.60096
-      ret.steerRatio = 16.8
+      ret.steerRatio = 17.7
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828  # ret.wheelbase * 0.4 # wild guess
       tire_stiffness_factor = 1.0
@@ -176,7 +176,7 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalTuning.kpBP = [0., 5. * CV.KPH_TO_MS, 130. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.10, 1.0, 0.6]
     ret.longitudinalTuning.kiBP = [0., 130. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.152, 0.075]
+    ret.longitudinalTuning.kiV = [0.162, 0.085]
 
     ret.longitudinalTuning.deadzoneBP = [0., 30. * CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
@@ -184,7 +184,7 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalActuatorDelayUpperBound = 0.25
 
     # ret.startAccel = -0.8 #### REMOVED
-    ret.stopAccel = -2.00
+    ret.stopAccel = -2.10
     # ret.startingAccelRate = 5.0 #### REMOVED
     ret.stoppingDecelRate = 3.5
     ret.vEgoStopping = 0.5
