@@ -102,7 +102,7 @@ class CarInterface(CarInterfaceBase):
     ret.minEnableSpeed = -1
     ret.mass = 1625. + STD_CARGO_KG
     ret.wheelbase = 2.60096
-    ret.steerRatio = 17.6
+    ret.steerRatio = 17.7
     ret.steerRatioRear = 0.
     ret.centerToFront = ret.wheelbase * 0.49  # wild guess
     ret.disableLateralLiveTuning = True
@@ -137,7 +137,7 @@ class CarInterface(CarInterfaceBase):
       # ret.minSteerSpeed = 5 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.wheelbase = 2.60096
-      ret.steerRatio = 17.6
+      ret.steerRatio = 17.7
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828  # ret.wheelbase * 0.4 # wild guess
       tire_stiffness_factor = 1.0
@@ -154,7 +154,7 @@ class CarInterface(CarInterfaceBase):
     else:
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
-      max_lat_accel = 3.1 # 조향 힘
+      max_lat_accel = 2.9 # 조향 힘
       ret.lateralTuning.torque.kp = 1.9 / max_lat_accel
       ret.lateralTuning.torque.kf = 1.0 / max_lat_accel
       ret.lateralTuning.torque.ki = 0.20 / max_lat_accel
@@ -176,7 +176,7 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalTuning.kpBP = [0., 5. * CV.KPH_TO_MS, 130. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.10, 1.0, 0.6]
     ret.longitudinalTuning.kiBP = [0., 130. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.175, 0.08]  # 앞차 거리
+    ret.longitudinalTuning.kiV = [0.178, 0.08]  # 앞차 거리
 
     ret.longitudinalTuning.deadzoneBP = [0., 30. * CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
