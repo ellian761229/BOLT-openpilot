@@ -95,7 +95,7 @@ class CarInterface(CarInterfaceBase):
 
     tire_stiffness_factor = 0.5
 
-    ret.minSteerSpeed = 11 * CV.KPH_TO_MS
+    ret.minSteerSpeed = 10 * CV.KPH_TO_MS
     # ret.steerRateCost = 0.345 # def : 2.0
     ret.steerActuatorDelay = 0.21  # def: 0.2 Default delay, not measured yet
 
@@ -173,10 +173,10 @@ class CarInterface(CarInterfaceBase):
                                                                          tire_stiffness_factor=tire_stiffness_factor)
 
     # longitudinal
-    ret.longitudinalTuning.kpBP = [0., 5. * CV.KPH_TO_MS, 130. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kpV = [1.10, 1.0, 0.6]
-    ret.longitudinalTuning.kiBP = [0., 130. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.177, 0.085]  # 앞차 거리
+    ret.longitudinalTuning.kpBP = [0., 18. * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kpV = [1.10, 1.0, 0.76]
+    ret.longitudinalTuning.kiBP = [0., 130. * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kiV = [0.165, 0.105, 0.11]  # 앞차 거리
 
     ret.longitudinalTuning.deadzoneBP = [0., 30. * CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
@@ -186,7 +186,7 @@ class CarInterface(CarInterfaceBase):
     # ret.startAccel = -0.8 #### REMOVED
     ret.stopAccel = -2.1225
     # ret.startingAccelRate = 5.0 #### REMOVED
-    ret.stoppingDecelRate = 3.5
+    ret.stoppingDecelRate = 4.0  # 속도 감속 
     ret.vEgoStopping = 0.5
     ret.vEgoStarting = 0.5
     ret.stoppingControl = True
