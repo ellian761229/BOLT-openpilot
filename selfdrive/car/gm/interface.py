@@ -95,14 +95,14 @@ class CarInterface(CarInterfaceBase):
 
     tire_stiffness_factor = 0.5
 
-    ret.minSteerSpeed = 12.2 * CV.KPH_TO_MS
+    ret.minSteerSpeed = 12.4 * CV.KPH_TO_MS
     # ret.steerRateCost = 0.345 # def : 2.0
     ret.steerActuatorDelay = 0.21  # def: 0.2 Default delay, not measured yet
 
     ret.minEnableSpeed = -1
     ret.mass = 1625. + STD_CARGO_KG
     ret.wheelbase = 2.60096
-    ret.steerRatio = 16.6
+    ret.steerRatio = 16.4
     ret.steerRatioRear = 0.
     ret.centerToFront = ret.wheelbase * 0.49  # wild guess
     ret.disableLateralLiveTuning = True
@@ -137,7 +137,7 @@ class CarInterface(CarInterfaceBase):
       # ret.minSteerSpeed = 5 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.wheelbase = 2.60096
-      ret.steerRatio = 16.6 #회전 가능크기
+      ret.steerRatio = 16.4 #회전 가능크기
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828  # ret.wheelbase * 0.4 # wild guess
       tire_stiffness_factor = 1.0
@@ -176,7 +176,7 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalTuning.kpBP = [0., 18. * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.10, 1.0, 0.76]
     ret.longitudinalTuning.kiBP = [0., 130. * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.165, 0.105, 0.11]  # 앞차 거리
+    ret.longitudinalTuning.kiV = [0.175, 0.115, 0.11]  # 앞차 거리
 
     ret.longitudinalTuning.deadzoneBP = [0., 30. * CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
@@ -184,9 +184,9 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalActuatorDelayUpperBound = 0.25
 
     # ret.startAccel = -0.8 #### REMOVED
-    ret.stopAccel = -2.1225
+    ret.stopAccel = -2.121
     # ret.startingAccelRate = 5.0 #### REMOVED
-    ret.stoppingDecelRate = 4.0  # 속도 감속 
+    ret.stoppingDecelRate = 4.1  # 속도 감속 
     ret.vEgoStopping = 0.5
     ret.vEgoStarting = 0.5
     ret.stoppingControl = True
