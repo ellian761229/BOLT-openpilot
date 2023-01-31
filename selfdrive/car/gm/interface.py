@@ -95,7 +95,7 @@ class CarInterface(CarInterfaceBase):
 
     tire_stiffness_factor = 0.5
 
-    ret.minSteerSpeed = 11.8 * CV.KPH_TO_MS
+    ret.minSteerSpeed = 11.7 * CV.KPH_TO_MS
     # ret.steerRateCost = 0.345 # def : 2.0
     ret.steerActuatorDelay = 0.21  # def: 0.2 Default delay, not measured yet
 
