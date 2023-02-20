@@ -102,7 +102,7 @@ class CarInterface(CarInterfaceBase):
     ret.minEnableSpeed = -1
     ret.mass = 1625. + STD_CARGO_KG
     ret.wheelbase = 2.60096
-    ret.steerRatio = 16.82
+    ret.steerRatio = 16.85
     ret.steerRatioRear = 0.
     ret.centerToFront = ret.wheelbase * 0.49  # wild guess
     ret.disableLateralLiveTuning = True
@@ -137,7 +137,7 @@ class CarInterface(CarInterfaceBase):
       # ret.minSteerSpeed = 5 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.wheelbase = 2.60096
-      ret.steerRatio = 16.82 #회전 가능크기
+      ret.steerRatio = 16.85 #회전 가능크기
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828  # ret.wheelbase * 0.4 # wild guess
       tire_stiffness_factor = 1.0
@@ -154,7 +154,7 @@ class CarInterface(CarInterfaceBase):
     else:
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
-      max_lat_accel = 3.0 # 핸들 힘
+      max_lat_accel = 3.00 # 핸들 힘
       ret.lateralTuning.torque.kp = 2.0 / max_lat_accel
       ret.lateralTuning.torque.kf = 1.0 / max_lat_accel
       ret.lateralTuning.torque.ki = 0.19 / max_lat_accel
