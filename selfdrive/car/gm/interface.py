@@ -146,7 +146,7 @@ class CarInterface(CarInterfaceBase):
       # still working on improving lateral
       ret.steerRateCost = 0.5
       ret.steerActuatorDelay = 0.
-      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.8, 40.8], [9.8, 40.8]]
+      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.7, 40.7], [9.8, 40.8]]
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.14, 0.24], [0.01, 0.021]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.5]
@@ -188,7 +188,7 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalActuatorDelayLowerBound = 0.13
     ret.longitudinalActuatorDelayUpperBound = 0.15
     
-    ret.stopAccel = -2.3
+    ret.stopAccel = -2.4
     ret.stoppingDecelRate = 4.0
     ret.vEgoStopping = 0.5
     ret.vEgoStarting = 0.5
