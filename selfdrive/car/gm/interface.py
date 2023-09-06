@@ -146,7 +146,7 @@ class CarInterface(CarInterfaceBase):
       # still working on improving lateral
       ret.steerRateCost = 0.5
       ret.steerActuatorDelay = 0.
-      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.7, 40.7], [9.8, 40.8]]
+      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.7, 40.7], [9.7, 40.7]]
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.14, 0.24], [0.01, 0.021]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.5]
@@ -158,7 +158,7 @@ class CarInterface(CarInterfaceBase):
     else:
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
-      max_lat_accel = 2.35
+      max_lat_accel = 2.99 #조향 힘
       ret.lateralTuning.torque.kp = 1.0 / max_lat_accel
       ret.lateralTuning.torque.kf = 1.0 / max_lat_accel
       ret.lateralTuning.torque.ki = 0.1 / max_lat_accel
@@ -180,16 +180,16 @@ class CarInterface(CarInterfaceBase):
     # longitudinal
     ret.longitudinalTuning.kpBP = [0., 18.0 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.10, 1.0, 0.76]
-    ret.longitudinalTuning.kiBP = [0., 18.0 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.148, 0.125, 0.12]
+    ret.longitudinalTuning.kiBP = [0., 18.2 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kiV = [0.175, 0.125, 0.12] # 앞차거리
     
     ret.longitudinalTuning.deadzoneBP = [0., 30.*CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
     ret.longitudinalActuatorDelayLowerBound = 0.13
     ret.longitudinalActuatorDelayUpperBound = 0.15
     
-    ret.stopAccel = -2.4
-    ret.stoppingDecelRate = 4.0
+    ret.stopAccel = -2.120
+    ret.stoppingDecelRate = 4.0 #속도감속힘
     ret.vEgoStopping = 0.5
     ret.vEgoStarting = 0.5
     ret.stoppingControl = True
