@@ -181,7 +181,7 @@ class CarInterface(CarInterfaceBase):
     ret.longitudinalTuning.kpBP = [0., 17.5 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.09, 1.0, 0.76]
     ret.longitudinalTuning.kiBP = [0., 18.3 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.175, 0.125, 0.12] # 앞차거리
+    ret.longitudinalTuning.kiV = [0.145, 0.125, 0.12] # 앞차거리
     
     ret.longitudinalTuning.deadzoneBP = [0., 30.*CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
