@@ -139,7 +139,7 @@ class CarInterface(CarInterfaceBase):
       # ret.minSteerSpeed = 5 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.wheelbase = 2.60096
-      ret.steerRatio = 17.549
+      ret.steerRatio = 17.550
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828 #ret.wheelbase * 0.4 # wild guess
       tire_stiffness_factor = 1.0
@@ -159,10 +159,10 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
       max_lat_accel = 2.99 #조향 힘
-      ret.lateralTuning.torque.kp = 1.0 / max_lat_accel
+      ret.lateralTuning.torque.kp = 2.0 / max_lat_accel
       ret.lateralTuning.torque.kf = 1.0 / max_lat_accel
-      ret.lateralTuning.torque.ki = 0.1 / max_lat_accel
-      ret.lateralTuning.torque.friction = 0.175
+      ret.lateralTuning.torque.ki = 0.19 / max_lat_accel
+      ret.lateralTuning.torque.friction = 0.02
 
       ret.lateralTuning.torque.kd = 1.0
       ret.lateralTuning.torque.deadzone = 0.03
@@ -178,15 +178,15 @@ class CarInterface(CarInterfaceBase):
                                                                          tire_stiffness_factor=tire_stiffness_factor)
 
     # longitudinal
-    ret.longitudinalTuning.kpBP = [0., 17.5 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kpBP = [0., 17.9 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.09, 1.0, 0.76]
-    ret.longitudinalTuning.kiBP = [0., 18.3 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.180, 0.125, 0.12] # 앞차거리
+    ret.longitudinalTuning.kiBP = [0., 18.2 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kiV = [0.175, 0.125, 0.12] # 앞차거리
     
     ret.longitudinalTuning.deadzoneBP = [0., 30.*CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
-    ret.longitudinalActuatorDelayLowerBound = 0.13
-    ret.longitudinalActuatorDelayUpperBound = 0.15
+    ret.longitudinalActuatorDelayLowerBound = 0.12
+    ret.longitudinalActuatorDelayUpperBound = 0.25
     
     ret.stopAccel = -2.0 
     ret.stoppingDecelRate = 4.0 #속도감속힘
