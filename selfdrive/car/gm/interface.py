@@ -178,10 +178,10 @@ class CarInterface(CarInterfaceBase):
                                                                          tire_stiffness_factor=tire_stiffness_factor)
 
     # longitudinal
-    ret.longitudinalTuning.kpBP = [0., 17.5 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kpV = [1.09, 1.0, 0.76]
-    ret.longitudinalTuning.kiBP = [0., 18.3 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.180, 0.125, 0.12] # 앞차거리
+    ret.longitudinalTuning.kpBP = [0., 18.0 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kpV = [1.10, 1.0, 0.76]
+    ret.longitudinalTuning.kiBP = [0., 18.0 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kiV = [0.140, 0.125, 0.12] # 앞차거리
     
     ret.longitudinalTuning.deadzoneBP = [0., 30.*CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
