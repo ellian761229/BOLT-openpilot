@@ -146,7 +146,7 @@ class CarInterface(CarInterfaceBase):
       # still working on improving lateral
       ret.steerRateCost = 0.5
       ret.steerActuatorDelay = 0.
-      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[10., 41.0], [10., 41.0]]
+      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.7, 40.7], [9.7, 40.7]]
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.14, 0.24], [0.01, 0.021]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.5]
@@ -159,9 +159,9 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
       max_lat_accel = 2.99 #조향 힘
-      ret.lateralTuning.torque.kp = 1.0 / max_lat_accel
+      ret.lateralTuning.torque.kp = 0.9 / max_lat_accel
       ret.lateralTuning.torque.kf = 1.0 / max_lat_accel
-      ret.lateralTuning.torque.ki = 0.1 / max_lat_accel
+      ret.lateralTuning.torque.ki = 0.09 / max_lat_accel
       ret.lateralTuning.torque.friction = 0.02
 
       ret.lateralTuning.torque.kd = 1.0
