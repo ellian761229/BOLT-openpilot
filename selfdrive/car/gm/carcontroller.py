@@ -149,15 +149,15 @@ class CarController():
             self.stoppingStateTimeWindowsActiveCounter += 1
             actuators.stoppingStateTimeWindowsActiveCounter = self.stoppingStateTimeWindowsActiveCounter
             if self.stoppingStateTimeWindowsActiveCounter > 0 :
-              actuators.pedalStartingAdder = interp(CS.out.vEgo, [0.0, 2.0 * CV.KPH_TO_MS, 6.0 * CV.KPH_TO_MS, 12.5 * CV.KPH_TO_MS, 25.0 * CV.KPH_TO_MS, 35.0 * CV.KPH_TO_MS], [0.0, 0.0100, 0.1250, 0.1350, 0.1550, 0.0250]) #0.0050, 0.0200
+              actuators.pedalStartingAdder = interp(CS.out.vEgo, [0.0, 5.0 * CV.KPH_TO_MS, 12.5 * CV.KPH_TO_MS, 25.0 * CV.KPH_TO_MS],[0.1850, 0.2275, 0.1750, 0.025])
               if d > 0:
-                actuators.pedalDistanceAdder = interp(d, [1,6,8, 9.5, 15, 30], [-1.0250 ,-0.5000 ,-0.0525 ,  -0.0100 ,0.0175,0.1000])
+                actuators.pedalDistanceAdder = interp(d, [1, 6, 8, 9.5, 15, 30],[-1.0250, -0.2500, -0.0425, -0.0080, 0.0175, 0.1000])
               actuators.pedalAdderFinal = (actuators.pedalStartingAdder + actuators.pedalDistanceAdder)
 
             if self.stoppingStateTimeWindowsActiveCounter > (stoppingStateWindowsActiveCounterLimits)  \
                     or (controls.LoC.long_control_state == LongCtrlState.stopping) \
                     or  CS.out.vEgo > 35*CV.KPH_TO_MS \
-                    or controls.LoC.pid.f < -0.65 \
+                    or controls.LoC.pid.f < -0.95 \
                     or actuators.accel < - 1.15 :
               if controls.LoC.pid.f < -0.625   or actuators.accel < - 1.225 :
                 self.stoppingStateTimeWindowsClosingAdder = 0
