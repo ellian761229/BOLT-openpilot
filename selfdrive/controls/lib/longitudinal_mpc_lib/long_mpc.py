@@ -46,7 +46,7 @@ CRUISE_GAP_BP = [1., 2., 3., 4.]
 CRUISE_GAP_V = [1.1, 1.3, 1.58, 2.10]
 
 AUTO_TR_BP = [0., 10.*CV.KPH_TO_MS, 20.*CV.KPH_TO_MS, 30.*CV.KPH_TO_MS, 40.*CV.KPH_TO_MS, 50.*CV.KPH_TO_MS, 60.*CV.KPH_TO_MS, 70.*CV.KPH_TO_MS, 80.*CV.KPH_TO_MS, 90.*CV.KPH_TO_MS, 110.*CV.KPH_TO_MS]
-AUTO_TR_V = [0.12, 0.2, 0.2, 0.4, 0.5, 0.6, 0.7, 0.7, 0.7, 0.6, 0.7]
+AUTO_TR_V = [0.10, 0.2, 0.2, 0.4, 0.5, 0.6, 0.7, 0.7, 0.7, 0.6, 0.7]
 
 # AUTO_TR_CRUISE_GAP = 4
 DIFF_RADAR_VISION = 1.5
@@ -62,8 +62,8 @@ T_IDXS = np.array(T_IDXS_LST)
 T_DIFFS = np.diff(T_IDXS, prepend=[0.])
 MIN_ACCEL = -3.6
 T_FOLLOW = 1.45
-COMFORT_BRAKE = 2.5
-STOP_DISTANCE = 5.6 #정지시 앞차거리
+COMFORT_BRAKE = 2.3
+STOP_DISTANCE = 5.7 #정지시 앞차거리
 
 def get_stopped_equivalence_factor(v_lead):
   return (v_lead**2) / (2 * COMFORT_BRAKE)
