@@ -149,7 +149,7 @@ class CarController():
             self.stoppingStateTimeWindowsActiveCounter += 1
             actuators.stoppingStateTimeWindowsActiveCounter = self.stoppingStateTimeWindowsActiveCounter
             if self.stoppingStateTimeWindowsActiveCounter > 0 :
-              actuators.pedalStartingAdder = interp(CS.out.vEgo, [0.0, 5.0 * CV.KPH_TO_MS, 12.5 * CV.KPH_TO_MS, 25.0 * CV.KPH_TO_MS],[0.1850, 0.2275, 0.1750, 0.025])
+              actuators.pedalStartingAdder = interp(CS.out.vEgo, [0.0, 2.0 * CV.KPH_TO_MS, 6.0 * CV.KPH_TO_MS, 9.0 * CV.KPH_TO_MS, 12.5 * CV.KPH_TO_MS, 25.0 * CV.KPH_TO_MS, 35.0 * CV.KPH_TO_MS], [0.0, 0.0070, 0.1000, 0.1200, 0.1350, 0.1550, 0.0250]) #0.0050, 0.0200
               if d > 0:
                 actuators.pedalDistanceAdder = interp(d, [1, 6, 8, 9.5, 15, 30],[-1.0250, -0.2500, -0.0425, -0.01750, 0.0175, 0.1000])
               actuators.pedalAdderFinal = (actuators.pedalStartingAdder + actuators.pedalDistanceAdder)
