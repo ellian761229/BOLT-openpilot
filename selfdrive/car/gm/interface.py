@@ -35,7 +35,7 @@ class CarInterface(CarInterfaceBase):
     v_current_kph = current_speed * CV.MS_TO_KPH
     # return params.ACCEL_MIN, params.ACCEL_MAX
     accel_max_bp = [10., 20., 30., 50., 70., 80.]
-    accel_max_v = [0.77, 0.80, 0.85, 0.9, 1.0, 1.1]
+    accel_max_v = [0.80, 0.80, 0.85, 0.9, 1.0, 1.1]
 
     return params.ACCEL_MIN, interp(v_current_kph, accel_max_bp, accel_max_v)
 
@@ -159,7 +159,7 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
       max_lat_accel = 2.99 #조향 힘
-      ret.lateralTuning.torque.kp = 1.0 / max_lat_accel
+      ret.lateralTuning.torque.kp = 1.5 / max_lat_accel
       ret.lateralTuning.torque.kf = 1.0 / max_lat_accel
       ret.lateralTuning.torque.ki = 0.1 / max_lat_accel
       ret.lateralTuning.torque.friction = 0.175
