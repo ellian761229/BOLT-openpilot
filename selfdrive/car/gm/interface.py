@@ -146,8 +146,8 @@ class CarInterface(CarInterfaceBase):
       # still working on improving lateral
       ret.steerRateCost = 0.5
       ret.steerActuatorDelay = 0.
-      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[10.2, 41.2], [10.1, 41.1]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.141, 0.241], [0.01, 0.021]]
+      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[10., 41.], [10., 41.]]
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.14, 0.24], [0.01, 0.021]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.5]
       ret.lateralTuning.pid.kf = 1. # for get_steer_feedforward_bolt()
