@@ -10,7 +10,7 @@ from selfdrive.car.hyundai.scc_smoother import SccSmoother
 from selfdrive.controls.lib.longitudinal_mpc_lib.long_mpc import STOP_DISTANCE
 import math
 
-min_set_speed = 48 * CV.KPH_TO_MS
+min_set_speed = 50 * CV.KPH_TO_MS
 VisualAlert = car.CarControl.HUDControl.VisualAlert
 LongCtrlState = car.CarControl.Actuators.LongControlState
 
