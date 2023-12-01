@@ -146,8 +146,8 @@ class CarInterface(CarInterfaceBase):
       # still working on improving lateral
       ret.steerRateCost = 0.5
       ret.steerActuatorDelay = 0.
-      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.8, 40.9], [10.1, 41.2]]
-      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.14, 0.24], [0.01, 0.021]]
+      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.8, 40.9], [10.1, 41.1]]
+      ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.139, 0.239], [0.009, 0.0209]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.5]
       ret.lateralTuning.pid.kf = 1. # for get_steer_feedforward_bolt()
@@ -178,9 +178,9 @@ class CarInterface(CarInterfaceBase):
                                                                          tire_stiffness_factor=tire_stiffness_factor)
 
     # longitudinal
-    ret.longitudinalTuning.kpBP = [0., 17.9 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kpBP = [0., 18.0 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.10, 1.0, 0.76]
-    ret.longitudinalTuning.kiBP = [0., 18.2 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kiBP = [0., 18.0 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kiV = [0.180, 0.126, 0.12]  # 앞차 거리
     
     ret.longitudinalTuning.deadzoneBP = [0., 30.*CV.KPH_TO_MS]
