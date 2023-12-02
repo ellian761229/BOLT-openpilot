@@ -112,7 +112,7 @@ class CarController():
       # self.pedal_hyst_gap = interp(CS.out.vEgo, [40.0 * CV.KPH_TO_MS, 100.0 * CV.KPH_TO_MS], [0.01, 0.006])
       # self.pedal_final, self.pedal_steady = actuator_hystereses(self.comma_pedal_original, self.pedal_steady, self.pedal_hyst_gap)
       # self.comma_pedal = clip(self.pedal_final, 0., 1.)
-      self.pedal_gas_max = interp(CS.out.vEgo, [0.0, 5, 10, 30], [0.2050, 0.2125, 0.3075, 0.3550])
+      self.pedal_gas_max = interp(CS.out.vEgo, [0.0, 5, 10, 30], [0.2050, 0.2125, 0.3075, 0.3050])
 
       accGain = 0.1429
       accGain3 = interp(actuators.accel, [-3.5, 2], [0.185, 0.130])
@@ -186,7 +186,7 @@ class CarController():
           self.comma_pedal = clip(self.comma_pedal, 0.0 , (self.pedalMaxValue -0.025))
 
       #braking logic
-      if actuators.accel < -1.0 :
+      if actuators.accel < -0.5 :
         can_sends.append(gmcan.create_regen_paddle_command(self.packer_pt, CanBus.POWERTRAIN))
         actuators.regenPaddle = True #for icon
       elif controls.LoC.pid.f < - 0.95 :
