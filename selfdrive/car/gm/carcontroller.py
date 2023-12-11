@@ -118,7 +118,7 @@ class CarController():
        accGain3 = interp(actuators.accel, [-3.5, 2], [0.185, 0.130])
        accGain10 = interp(actuators.accel, [-3.5, 2], [0.245, 0.185])
        accGain15 = interp(actuators.accel, [-3.5, 2], [0.25, 0.215])
-      zero = interp(CS.out.vEgo, [0., 3, 10, 15, 30], [0, accGain3, accGain10, accGain15, 0.280])
+      zero = interp(CS.out.vEgo, [0, 3, 10, 15, 30], [0, accGain3, accGain10, accGain15, 0.280])
 
       self.comma_pedal = clip((actuators.accel * accGain + zero), 0., 1.)
 
