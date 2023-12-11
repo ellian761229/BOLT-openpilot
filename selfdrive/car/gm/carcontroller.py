@@ -123,9 +123,9 @@ class CarController():
       
       self.comma_pedal = clip((actuators.accel * accGain + zero), 0., 1.)
 
-      self.pedal_hyst_gap = interp(CS.out.vEgo, [40.0 * CV.KPH_TO_MS, 100.0 * CV.KPH_TO_MS], [0.01, 0.0050])
-      pedal_final, self.pedal_steady = actuator_hystereses(self.comma_pedal, self.pedal_steady, self.pedal_hyst_gap)
-      self.comma_pedal = clip(pedal_final, 0., self.pedal_gas_max)
+      #self.pedal_hyst_gap = interp(CS.out.vEgo, [40.0 * CV.KPH_TO_MS, 100.0 * CV.KPH_TO_MS], [0.01, 0.0050])
+      #pedal_final, self.pedal_steady = actuator_hystereses(self.comma_pedal, self.pedal_steady, self.pedal_hyst_gap)
+      #self.comma_pedal = clip(pedal_final, 0., self.pedal_gas_max)
 
       actuators.commaPedalOrigin = self.comma_pedal
 
