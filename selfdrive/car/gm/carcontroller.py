@@ -112,15 +112,14 @@ class CarController():
       # self.pedal_hyst_gap = interp(CS.out.vEgo, [40.0 * CV.KPH_TO_MS, 100.0 * CV.KPH_TO_MS], [0.01, 0.006])
       # self.pedal_final, self.pedal_steady = actuator_hystereses(self.comma_pedal_original, self.pedal_steady, self.pedal_hyst_gap)
       # self.comma_pedal = clip(self.pedal_final, 0., 1.)
-       self.pedal_gas_max = interp(CS.out.vEgo, [0.0, 5, 30], [0.2725, 0.3275, 0.3650])
-
+      self.pedal_gas_max = interp(CS.out.vEgo, [0.0, 5, 10, 30], [0.2025, 0.2425, 0.3175, 0.3650])
 
       accGain = 0.1429
       accGain3 = interp(actuators.accel, [-3.5, 2], [0.185, 0.130])
       accGain10 = interp(actuators.accel, [-3.5, 2], [0.245, 0.185])
       accGain15 = interp(actuators.accel, [-3.5, 2], [0.25, 0.215])
       zero = interp(CS.out.vEgo, [0., 3, 10, 15, 30], [0, accGain3, accGain10, accGain15, 0.280])
-      
+
       self.comma_pedal = clip((actuators.accel * accGain + zero), 0., 1.)
 
       #self.pedal_hyst_gap = interp(CS.out.vEgo, [40.0 * CV.KPH_TO_MS, 100.0 * CV.KPH_TO_MS], [0.01, 0.0050])
@@ -150,9 +149,10 @@ class CarController():
             self.stoppingStateTimeWindowsActiveCounter += 1
             actuators.stoppingStateTimeWindowsActiveCounter = self.stoppingStateTimeWindowsActiveCounter
             if self.stoppingStateTimeWindowsActiveCounter > 0 :
-              actuators.pedalStartingAdder = interp(CS.out.vEgo, [0.0, 2.0 * CV.KPH_TO_MS , 6.0* CV.KPH_TO_MS , 9.0 * CV.KPH_TO_MS , 12.5* CV.KPH_TO_MS , 25.0* CV.KPH_TO_MS , 35.0* CV.KPH_TO_MS ], [ 0.0, 0070, 0.0850, 0.900, 0.1100, 0.1400, 0.0250])
+              actuators.pedalStartingAdder = interp(CS.out.vEgo, [0.0, 2.0 * CV.KPH_TO_MS ,12.5 * CV.KPH_TO_MS , 25.0 * CV.KPH_TO_MS], [0.1250,0.1675, 0.1750, 0.025])
               if d > 0: 
-                actuators.pedalDistanceAdder = interp(d, [1,6,8, 9.5, 15, 30], [-1.0250 ,-0.5000 ,-0.0525 ,  -0.0100 ,0.0175,0.1000])
+                 actuators.pedalDistanceAdder = interp(d, [1,6,8, 9.5, 15, 30], [-1.0250 ,-0.5000 ,-0.0525 ,  -0.0100 ,0.0175,0.1000])
+              actuators.pedalAdderFinal = (actuators.pedalStartingAdder + actuators.pedalDistanceAdder)
 
             if self.stoppingStateTimeWindowsActiveCounter > (stoppingStateWindowsActiveCounterLimits)  \
                     or (controls.LoC.long_control_state == LongCtrlState.stopping) \
@@ -186,7 +186,7 @@ class CarController():
           self.comma_pedal = clip(self.comma_pedal, 0.0 , (self.pedalMaxValue -0.025))
 
       #braking logic
-      if actuators.accel < -0.5 :
+      if actuators.accel < -1.5 :
         can_sends.append(gmcan.create_regen_paddle_command(self.packer_pt, CanBus.POWERTRAIN))
         actuators.regenPaddle = True #for icon
       elif controls.LoC.pid.f < - 0.95 :
