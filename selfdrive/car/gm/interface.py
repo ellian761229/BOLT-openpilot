@@ -150,7 +150,7 @@ class CarInterface(CarInterfaceBase):
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.14, 0.24], [0.01, 0.021]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.5]
-      ret.lateralTuning.pid.kf = 1. # for get_steer_feedforward_bolt()
+      ret.lateralTuning.pid.kf = 0.95 # for get_steer_feedforward_bolt()
       
       
       
