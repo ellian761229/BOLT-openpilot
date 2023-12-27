@@ -35,7 +35,7 @@ class CarInterface(CarInterfaceBase):
     v_current_kph = current_speed * CV.MS_TO_KPH
     # return params.ACCEL_MIN, params.ACCEL_MAX
     accel_max_bp = [10., 20., 30., 40., 50., 60., 70., 80.]
-    accel_max_v = [0.85, 0.92, 0.96, 1.0, 1.1, 1.1, 1.12, 1.12]
+    accel_max_v = [0.88, 0.92, 0.96, 1.0, 1.1, 1.1, 1.12, 1.12]
 
     return params.ACCEL_MIN, interp(v_current_kph, accel_max_bp, accel_max_v)
 
