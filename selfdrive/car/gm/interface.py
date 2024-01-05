@@ -35,7 +35,7 @@ class CarInterface(CarInterfaceBase):
     v_current_kph = current_speed * CV.MS_TO_KPH
     # return params.ACCEL_MIN, params.ACCEL_MAX
     accel_max_bp = [10., 20., 30., 40., 50., 60., 70., 80.]
-    accel_max_v = [0.90, 0.94, 0.98, 1.15, 1.2, 1.25, 1.13, 1.14]
+    accel_max_v = [0.95, 0.97, 1.0, 1.15, 1.25, 1.25, 1.23, 1.24]
 
     return params.ACCEL_MIN, interp(v_current_kph, accel_max_bp, accel_max_v)
 
@@ -139,7 +139,7 @@ class CarInterface(CarInterfaceBase):
       # ret.minSteerSpeed = 5 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.wheelbase = 2.60096
-      ret.steerRatio = 16.0
+      ret.steerRatio = 16.8
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828 #ret.wheelbase * 0.4 # wild guess
       tire_stiffness_factor = 1.0
@@ -158,7 +158,7 @@ class CarInterface(CarInterfaceBase):
     else:
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
-      max_lat_accel = 2.95
+      max_lat_accel = 2.6531724862969748
       ret.lateralTuning.torque.kp = 1.0 / max_lat_accel
       ret.lateralTuning.torque.kf = 0.1919764879840985 / max_lat_accel
       ret.lateralTuning.torque.ki = 0.009054123646805178 / max_lat_accel
