@@ -139,14 +139,14 @@ class CarInterface(CarInterfaceBase):
       # ret.minSteerSpeed = 5 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.wheelbase = 2.60096
-      ret.steerRatio = 17.6
+      ret.steerRatio = 17.7
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828 #ret.wheelbase * 0.4 # wild guess
       tire_stiffness_factor = 1.0
       # still working on improving lateral
       ret.steerRateCost = 0.5
       ret.steerActuatorDelay = 0.
-      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.9, 40.9], [10.0, 44.0]]
+      ret.lateralTuning.pid.kpBP, ret.lateralTuning.pid.kiBP = [[9.9, 40.9], [11.0, 45.0]]
       ret.lateralTuning.pid.kpV, ret.lateralTuning.pid.kiV = [[0.14, 0.24], [0.01, 0.021]]
       ret.lateralTuning.pid.kdBP = [0.]
       ret.lateralTuning.pid.kdV = [0.5]
