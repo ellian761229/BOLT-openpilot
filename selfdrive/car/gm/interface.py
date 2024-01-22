@@ -34,8 +34,8 @@ class CarInterface(CarInterfaceBase):
     params = CarControllerParams(CP)
     v_current_kph = current_speed * CV.MS_TO_KPH
     # return params.ACCEL_MIN, params.ACCEL_MAX
-    accel_max_bp = [10., 20., 30., 50., 70., 80.] 
-    accel_max_v =[1.0, 1.1, 1.25, 1.28, 1.3, 1.35]
+    accel_max_bp = [10., 20., 30., 50., 70., 80.]
+    accel_max_v = [0.85, 0.89, 0.91, 9.5, 1.0, 1.1]
 
     return params.ACCEL_MIN, interp(v_current_kph, accel_max_bp, accel_max_v)
 
@@ -139,7 +139,7 @@ class CarInterface(CarInterfaceBase):
       # ret.minSteerSpeed = 5 * CV.MPH_TO_MS
       ret.mass = 1616. + STD_CARGO_KG
       ret.wheelbase = 2.60096
-      ret.steerRatio = 15.69
+      ret.steerRatio = 15.68
       ret.steerRatioRear = 0.
       ret.centerToFront = 2.0828 #ret.wheelbase * 0.4 # wild guess
       tire_stiffness_factor = 1.0
@@ -158,7 +158,7 @@ class CarInterface(CarInterfaceBase):
     else:
       ret.lateralTuning.init('torque')
       ret.lateralTuning.torque.useSteeringAngle = True
-      max_lat_accel = 2.72
+      max_lat_accel = 2.73
       ret.lateralTuning.torque.kp = 1.0 / max_lat_accel
       ret.lateralTuning.torque.kf = 0.1919764879840985 / max_lat_accel
       ret.lateralTuning.torque.ki = 0.009054123646805178 / max_lat_accel
@@ -180,18 +180,18 @@ class CarInterface(CarInterfaceBase):
     # longitudinal
     ret.longitudinalTuning.kpBP = [0., 17.9 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
     ret.longitudinalTuning.kpV = [1.10, 1.0, 0.76]
-    ret.longitudinalTuning.kiBP = [0., 18. * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
-    ret.longitudinalTuning.kiV = [0.178, 0.127, 0.120]  # 앞차 거리
+    ret.longitudinalTuning.kiBP = [0., 18.2 * CV.KPH_TO_MS, 80. * CV.KPH_TO_MS]
+    ret.longitudinalTuning.kiV = [0.180, 0.125, 0.120]  # 앞차 거리
     
     ret.longitudinalTuning.deadzoneBP = [0., 30.*CV.KPH_TO_MS]
     ret.longitudinalTuning.deadzoneV = [0., 0.10]
-    ret.longitudinalActuatorDelayLowerBound = 0.12
-    ret.longitudinalActuatorDelayUpperBound = 0.35
+    ret.longitudinalActuatorDelayLowerBound = 0.15
+    ret.longitudinalActuatorDelayUpperBound = 0.15
     
     ret.stopAccel =  -0.0
     ret.stoppingDecelRate = 4.0
-    ret.vEgoStopping = 0.3
-    ret.vEgoStarting = 0.23
+    ret.vEgoStopping = 0.4
+    ret.vEgoStarting = 0.4
     ret.stoppingControl = True
     
     ret.steerLimitTimer = 0.4
